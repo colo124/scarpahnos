@@ -13,9 +13,11 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/jquery.loading-indicator.css'
     ];
     public $js = [
         'js/uploadImgur.js',
+        'js/jquery.loading-indicator.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

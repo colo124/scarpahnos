@@ -9,6 +9,9 @@ function uploadBeforeSumbit() {
     var reader = new FileReader();
 
     reader.onload = function(e) {
+      var homeLoader = $('body').loadingIndicator({
+      					useImage: false,
+      				}).data("loadingIndicator");
       var img = document.createElement("img");
       img.src=reader.result;
       var canvas = document.getElementById('canvas');
@@ -48,9 +51,12 @@ function uploadBeforeSumbit() {
               var fileInput = document.getElementById('motor-imagen');
               fileInput.value="";
               document.getElementById("frmUpload").submit();
-
+              homeLoader.hide();
           },
-          error: function(data) { console.log(data); }
+          error: function(data) {
+              homeLoader.hide();
+              console.log(data);
+        }
       });
     }
     reader.readAsDataURL(file);
