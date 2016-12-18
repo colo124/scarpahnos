@@ -1,6 +1,5 @@
 function uploadBeforeSumbit() {
   event.preventDefault();
-  alert('Hola!');
   var fileInput = document.getElementById('motor-imagen');
   var imageURL = document.getElementById('imageUrl');
   var file = fileInput.files[0];
@@ -10,7 +9,30 @@ function uploadBeforeSumbit() {
     var reader = new FileReader();
 
     reader.onload = function(e) {
-      var base64img = reader.result.replace('data:image/jpeg;base64,', '');
+      var img = document.createElement("img");
+      img.src=reader.result;
+      var canvas = document.getElementById('canvas');
+      var MAX_WIDTH = 800;
+      var MAX_HEIGHT = 600;
+      var width = img.width;
+      var height = img.height;
+
+      if (width > height) {
+        if (width > MAX_WIDTH) {
+          height *= MAX_WIDTH / width;
+          width = MAX_WIDTH;
+        }
+      } else {
+        if (height > MAX_HEIGHT) {
+          width *= MAX_HEIGHT / height;
+          height = MAX_HEIGHT;
+        }
+      }
+      canvas.width = width;
+      canvas.height = height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, width, height);
+      var base64img = canvas.toDataURL("image/jpeg").replace('data:image/jpeg;base64,', '');
       $.ajax({
           url: 'https://api.imgur.com/3/image',
           headers: {
