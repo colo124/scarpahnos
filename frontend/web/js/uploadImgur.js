@@ -45,6 +45,8 @@ function uploadBeforeSumbit() {
           success: function(data) {
               console.log(data.data.link);
               imageURL.value=data.data.link;
+              var fileInput = document.getElementById('motor-imagen');
+              fileInput.value="";
               document.getElementById("frmUpload").submit();
 
           },

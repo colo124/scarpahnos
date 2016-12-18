@@ -18,7 +18,7 @@ use frontend\models\Cliente;
     ?>
 
 <div class="motor-form">
-    <canvas id="canvas" width="800" height="600" style="visibility: hidden;"></canvas>
+    <canvas id="canvas" width="800" height="600" style="display: none;"></canvas>
     <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data','id'=>'frmUpload']]); ?>
     <input type="hidden" id="imageUrl" name="imageUrl" value="">
     <?= $form->field($model, 'fk_cliente')->dropDownList($map) ?>
