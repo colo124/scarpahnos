@@ -36,9 +36,9 @@ class Motor extends \yii\db\ActiveRecord
     {
         return [
             [['fk_cliente', 'marca', 'hp', 'rpm'], 'required'],
-            [['fk_cliente', 'hp', 'rpm'], 'integer'],
+            [['fk_cliente', 'rpm'], 'integer'],
             [['fecha'], 'safe'],
-            [['marca', 'imagen', 'descripcion', 'estado'], 'string', 'max' => 255],
+            [['marca', 'imagen', 'hp', 'descripcion', 'estado'], 'string', 'max' => 255],
             [['fk_cliente'], 'exist', 'skipOnError' => true, 'targetClass' => Cliente::className(), 'targetAttribute' => ['fk_cliente' => 'id']],
         ];
     }

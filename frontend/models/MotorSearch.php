@@ -47,7 +47,7 @@ class MotorSearch extends Motor
 
         $dataProvider = new ActiveDataProvider([
              'query' => $query,
-             'sort'=> ['defaultOrder' => ['fecha'=>SORT_DESC]]
+             'sort'=> ['defaultOrder' => ['id'=>SORT_DESC]]
          ]);
 
         $this->load($params);

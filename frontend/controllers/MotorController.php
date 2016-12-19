@@ -68,7 +68,7 @@ class MotorController extends Controller
             if ($model->load(Yii::$app->request->post())) {
                 $model->imagen = $_POST['imageUrl'];
                 date_default_timezone_set('America/Argentina/Buenos_Aires');
-                $model->fecha = Date('Y-m-d');
+                $model->fecha = date ("Y-m-d H:i:s");
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
