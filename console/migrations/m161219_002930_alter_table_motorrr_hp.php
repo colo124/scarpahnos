@@ -6,7 +6,7 @@ class m161219_002930_alter_table_motorrr_hp extends Migration
 {
     public function up()
     {
-    $this->execute('ALTER TABLE motor CHANGE hp hp VARCHAR(30) NULL DEFAULT NULL;');
+    $this->execute('ALTER TABLE motor ALTER COLUMN hp TYPE varchar(30);');
 
 
     }
