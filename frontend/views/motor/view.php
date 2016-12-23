@@ -34,13 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'fk_cliente',
-            [
+           /*[
                'attribute' => 'fk_cliente.name',
                'header' => 'cliente'
                'value'=> 'function ($model, $key, $index, $grid){
                    return $model->fk_cliente->name;
                }'
-            ],
+            ],*/
             'marca',
             'hp',
             'rpm',
