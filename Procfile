@@ -1,1 +1,1 @@
-web: frontend/web public/
+web: /frontend/web public/
